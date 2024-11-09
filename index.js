@@ -37,6 +37,6 @@ app.use("/user", userrouter);
 app.use("/blog", blogRoute);
 
 app.listen(PORT, ()=>{
-    console.log("start ho gya", PORT)
+    console.log("SERVER STARTED", PORT)
 })
 
