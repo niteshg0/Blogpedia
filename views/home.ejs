@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ffcc00;
+            text-shadow: 1px 1px 10px rgba(255, 204, 0, 0.8);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #222;
+            color: #f8f8f2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(255, 204, 0, 0.7);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            /* height: 50%; */
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            text-shadow: 1px 1px 6px rgba(255, 204, 0, 0.7);
+        }
+
+        .card-text {
+            color: #cccccc;
+        }
+
+        .text-muted {
+            color: #888888;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            border: none;
+            color: #121212;
+        }
+
+        .btn-primary:hover {
+            background-color: #d4a900;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav") %>
+
+    <div class="container mt-5">
+        <h1>All Blogs</h1>
+        <div class="row">
+            <% blogs.forEach(blogPost => { %>
+                <div class="col-md-4 d-flex mb-4">
+                    <div class="card shadow-sm w-100">
+                        <img src="<%= blogPost.coverImageURL %>" class="card-img-top" alt="Cover Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= blogPost.title %></h5>
+                            <p class="card-text"><%= blogPost.body.substring(0, 50) %>...</p>
+                            <p class="card-text">created on <%= new Date(blogPost.createdAt).toLocaleDateString() %></p>
+                            <a href="/blog/<%= blogPost._id %>" class="btn btn-primary mt-auto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <%- include("./partials/script") %>
+</body>
+</html>

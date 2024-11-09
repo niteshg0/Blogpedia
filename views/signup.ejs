@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <%- include("./partials/head") %>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            margin-top: 50px;
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .form-control {
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .form-check-label {
+            color: #555;
+        }
+        .form-check-input {
+            margin-right: 5px;
+        }
+        .btn-primary {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .form-text {
+            font-size: 0.85em;
+            color: #777;
+            margin-top: 5px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <%- include("./partials/nav") %>
+    
+
+    <!-- Signup Form Container -->
+    <div class="container">
+        <h2>Signup Form</h2>
+        <form action="/user/signup" method="post">
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter your full name" name="fullName" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="you@example.com" name="email" required>
+                <div id="emailHelp" class="form-text">We’ll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Create a password" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Include any necessary scripts -->
+    <%- include("./partials/script") %>
+</body>
+</html>
